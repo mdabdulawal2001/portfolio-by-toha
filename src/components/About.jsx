@@ -68,7 +68,7 @@ const About = () => {
               description="I care deeply about balance: clear storytelling, elegant visuals, and reliable engineering working together to create products people enjoy using."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
+              <div className="rounded-[24px] border border-sky-200 bg-sky-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
                   Programming Journey
                 </h3>
@@ -77,7 +77,7 @@ const About = () => {
                   details, and turning product ideas into maintainable software.
                 </p>
               </div>
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
+              <div className="rounded-[24px] border border-sky-200 bg-sky-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
                   Career Goal
                 </h3>
@@ -109,7 +109,7 @@ const About = () => {
               {highlights.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/60"
+                  className="rounded-[24px] border border-sky-200 bg-sky-50 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/60"
                 >
                   <h4 className="text-base font-semibold text-slate-900 dark:text-white">
                     {item.title}

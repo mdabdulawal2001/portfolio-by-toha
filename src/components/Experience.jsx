@@ -25,7 +25,7 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
+              className="rounded-[28px] border border-sky-200 bg-sky-50 p-8 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
             >
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">
                 {item.duration}
@@ -39,7 +39,7 @@ const Experience = () => {
               <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 {item.description}
               </p>
-              <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+              <div className="mt-6 rounded-2xl bg-sky-50 p-4 text-sm text-sky-700 dark:bg-slate-800 dark:text-slate-200">
                 {item.technology}
               </div>
             </motion.div>

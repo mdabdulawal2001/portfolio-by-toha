@@ -53,7 +53,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
+            className="rounded-[32px] border border-sky-200 bg-sky-50 p-8 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
           >
             <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">
               Contact Details
@@ -82,19 +82,19 @@ const Contact = () => {
             <div className="mt-8 flex gap-3">
               <a
                 href={socialLinks.github}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:text-slate-200"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:bg-sky-600 hover:text-white dark:border-slate-700 dark:text-slate-200 dark:hover:bg-sky-600 dark:hover:text-white"
               >
                 <FaGithub />
               </a>
               <a
                 href={socialLinks.linkedin}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:text-slate-200"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:bg-sky-600 hover:text-white dark:border-slate-700 dark:text-slate-200 dark:hover:bg-sky-600 dark:hover:text-white"
               >
                 <FaLinkedin />
               </a>
               <a
                 href={socialLinks.facebook}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:bg-slate-900 hover:text-white dark:border-slate-700 dark:text-slate-200"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:bg-sky-600 hover:text-white dark:border-slate-700 dark:text-slate-200 dark:hover:bg-sky-600 dark:hover:text-white"
               >
                 <FaFacebook />
               </a>

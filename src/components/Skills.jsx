@@ -31,7 +31,7 @@ const Skills = () => {
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
                   {group.category}
                 </h3>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                <span className="rounded-full bg-sky-100 px-3 py-1 text-sm text-sky-700 dark:bg-slate-800 dark:text-sky-300">
                   {group.items.length} skills
                 </span>
               </div>

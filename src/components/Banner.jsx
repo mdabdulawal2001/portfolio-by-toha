@@ -7,6 +7,7 @@ import { Button } from "@heroui/react";
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
 import Container from "@/components/ui/Container";
 import { socialLinks } from "@/data/socialLinks";
+import profileImage from "@/assets/profilePic.jpeg";
 
 const Banner = () => {
   const socialItems = [
@@ -39,16 +40,16 @@ const Banner = () => {
               Building polished web experiences with modern frontend craft.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-              I’m MD Abdul Awal, a full-stack web developer focused on creating
-              memorable, performant products with thoughtful UI and scalable
-              architecture.
+              I’m MD ABDUL AWAL TOHA, a full-stack web developer focused on
+              creating memorable, performant products with thoughtful UI and
+              scalable architecture.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
                 as={Link}
                 href="#contact"
                 color="primary"
-                className="rounded-full bg-gradient-to-r from-sky-500 to-blue-700 px-6 py-6 text-sm font-semibold text-white shadow-lg shadow-sky-200 transition hover:scale-[1.02]"
+                className="rounded-full bg-sky-600 px-7 py-5 text-sm font-semibold text-white shadow-[0_18px_45px_-25px_rgba(14,165,233,0.75)] transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_60px_-30px_rgba(14,165,233,0.85)] hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40 dark:bg-sky-400 dark:text-slate-950 dark:shadow-[0_18px_45px_-25px_rgba(14,165,233,0.45)] dark:hover:bg-sky-300"
               >
                 Download Resume
               </Button>
@@ -56,7 +57,7 @@ const Banner = () => {
                 as={Link}
                 href="#projects"
                 variant="bordered"
-                className="rounded-full border-slate-300 px-6 py-6 text-sm font-semibold text-slate-700 transition hover:scale-[1.02] dark:border-slate-600 dark:text-slate-200"
+                className="rounded-full border border-sky-600 bg-white px-7 py-5 text-sm font-semibold text-slate-950 shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-sky-700 hover:bg-sky-50 dark:border-sky-400 dark:bg-slate-950 dark:text-slate-100 dark:hover:border-sky-300 dark:hover:bg-slate-900"
               >
                 View Projects
               </Button>
@@ -81,12 +82,12 @@ const Banner = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="relative mx-auto w-full max-w-lg"
           >
-            <div className="absolute inset-0 rounded-[36px] bg-gradient-to-br from-sky-400/20 to-blue-700/30 blur-2xl" />
+            <div className="absolute inset-0 rounded-[36px] bg-linear-to-br from-sky-400/20 to-blue-700/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white/80 p-3 shadow-[0_30px_100px_-30px_rgba(15,23,42,0.35)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/70">
-              <div className="relative h-[520px] overflow-hidden rounded-[28px] bg-slate-950">
+              <div className="relative h-130 overflow-hidden rounded-[28px] bg-slate-950">
                 <Image
-                  src="/images/profile/profile.jpg"
-                  alt="MD Abdul Awal portrait"
+                  src={profileImage}
+                  alt="MD ABDUL AWAL portrait"
                   fill
                   className="object-cover"
                   priority

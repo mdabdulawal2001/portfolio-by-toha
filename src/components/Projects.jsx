@@ -37,7 +37,7 @@ const Projects = () => {
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
-                <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700">
+                <div className="absolute bottom-4 left-4 rounded-full bg-sky-600/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700 dark:bg-sky-500/20 dark:text-sky-300">
                   {project.status}
                 </div>
               </div>
@@ -46,7 +46,7 @@ const Projects = () => {
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
                     {project.title}
                   </h3>
-                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                     {project.category}
                   </span>
                 </div>
@@ -57,7 +57,7 @@ const Projects = () => {
                   {project.technologyStack.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full bg-slate-200/70 px-3 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
+                      className="rounded-full bg-sky-50/80 px-3 py-1 text-xs font-medium text-sky-700 dark:bg-slate-800 dark:text-slate-200"
                     >
                       {tech}
                     </span>
@@ -66,19 +66,19 @@ const Projects = () => {
                 <div className="mt-6 flex flex-wrap gap-3">
                   <a
                     href={project.liveLink}
-                    className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-sky-600"
+                    className="rounded-full bg-sky-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-sky-700"
                   >
                     Live Demo
                   </a>
                   <a
                     href={project.githubClient}
-                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-sky-500 hover:text-sky-600"
+                    className="rounded-full border border-sky-300 px-4 py-2 text-sm font-medium text-sky-700 transition hover:border-sky-500 hover:text-sky-700 dark:border-slate-700 dark:text-sky-300 dark:hover:border-sky-400"
                   >
                     GitHub
                   </a>
                   <Link
                     href={`/projects/${project.id}`}
-                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-sky-500 hover:text-sky-600"
+                    className="rounded-full border border-sky-300 px-4 py-2 text-sm font-medium text-sky-700 transition hover:border-sky-500 hover:text-sky-700 dark:border-slate-700 dark:text-sky-300 dark:hover:border-sky-400"
                   >
                     View Details
                   </Link>
