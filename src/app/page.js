@@ -1,9 +1,23 @@
-import Image from "next/image";
+import Banner from "@/components/Banner";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main>
-      <h1>Main Section</h1>
+      <Banner />
+      <About />
+      <Skills />
+      <Education />
+      <Experience />
+      <Projects />
+      <Contact />
+      <Footer />
     </main>
   );
 }
