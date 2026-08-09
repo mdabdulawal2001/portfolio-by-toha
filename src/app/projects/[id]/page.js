@@ -1,16 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getProjectById, getProjectBySlug } from "@/data/projects";
+import { projects, getProjectById, getProjectBySlug } from "@/data/projects";
 import Container from "@/components/ui/Container";
 
 export async function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+  return projects.map((project) => ({ id: String(project.id) }));
 }
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const project = getProjectById(id);
+  const project = getProjectById(id) || getProjectBySlug(id);
 
   if (!project) {
     return { title: "Project Not Found" };
@@ -30,135 +30,169 @@ export default async function ProjectDetailPage({ params }) {
     notFound();
   }
 
-  const currentIndex = [1, 2, 3].findIndex((value) => value === project.id);
-  const prevProject = currentIndex > 0 ? { id: 1, title: "SkillSphere" } : null;
-  const nextProject = currentIndex < 2 ? { id: 2, title: "KeenKeeper" } : null;
+  const currentIndex = projects.findIndex((item) => item.id === project.id);
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
+  const nextProject =
+    currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
-    <main className="min-h-screen bg-slate-50 pb-24 pt-28">
-      <Container className="space-y-12">
-        <div className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_20px_80px_-30px_rgba(2,8,23,0.35)]">
+    <main className="min-h-screen bg-slate-50 pb-24 pt-28 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+      <Container className="space-y-10">
+        {/* Top Hero Banner */}
+        <div className="overflow-hidden rounded-[32px] border border-slate-200/80 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900/60">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="p-8 sm:p-10 lg:p-14">
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-sky-600">
-                {project.category}
-              </p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              <div className="flex items-center gap-3">
+                <span className="rounded-full bg-sky-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-sky-600 dark:bg-sky-400/20 dark:text-sky-300">
+                  {project.category}
+                </span>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                  {project.date}
+                </span>
+              </div>
+
+              <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 {project.title}
               </h1>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                {project.fullDescription}
+
+              <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
+                {project.shortDescription}
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+
+              {/* Tech Stack Pills */}
+              <div className="mt-8 flex flex-wrap gap-2">
                 {project.technologyStack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700"
+                    className="rounded-xl border border-slate-200/80 bg-slate-50 px-3.5 py-1.5 text-xs font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-800/80 dark:text-slate-300"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="relative min-h-[320px] lg:min-h-full">
+
+            <div className="relative min-h-75 bg-slate-100 lg:min-h-full dark:bg-slate-800">
               <Image
                 src={project.coverImage}
                 alt={project.title}
                 fill
-                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover w-full h-full transition-transform duration-700 ease-out hover:scale-105"
               />
             </div>
           </div>
         </div>
 
+        {/* Content Layout */}
         <div className="grid gap-8 lg:grid-cols-[1.6fr_0.8fr]">
+          {/* Main Sections */}
           <div className="space-y-8">
-            <section className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="text-2xl font-semibold text-slate-900">
+            {/* Overview */}
+            <section className="rounded-[28px] border border-slate-200/80 bg-white p-8 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-100!">
                 Overview
               </h2>
-              <p className="mt-4 leading-8 text-slate-600">
+              <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
                 {project.fullDescription}
               </p>
             </section>
-            <section className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="text-2xl font-semibold text-slate-900">
-                Features
+
+            {/* Features */}
+            <section className="rounded-[28px] border border-slate-200/80 bg-white p-8 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-100!">
+                Key Features
               </h2>
-              <ul className="mt-4 space-y-3 text-slate-600">
+              <ul className="mt-5 space-y-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300">
                 {project.features.map((feature) => (
-                  <li key={feature} className="flex gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-500" />
-                    {feature}
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-500" />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
             </section>
-            <section className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="text-2xl font-semibold text-slate-900">
-                Challenges
+
+            {/* Challenges */}
+            <section className="rounded-[28px] border border-slate-200/80 bg-white p-8 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-100!">
+                Challenges & Solutions
               </h2>
-              <ul className="mt-4 space-y-3 text-slate-600">
+              <ul className="mt-5 space-y-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300">
                 {project.challenges.map((challenge) => (
-                  <li key={challenge} className="flex gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-slate-400" />
-                    {challenge}
+                  <li key={challenge} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber-500" />
+                    <span>{challenge}</span>
                   </li>
                 ))}
               </ul>
             </section>
-            <section className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="text-2xl font-semibold text-slate-900">
-                Future Improvements
+
+            {/* Future Plans */}
+            <section className="rounded-[28px] border border-slate-200/80 bg-white p-8 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-100!">
+                Future Roadmap
               </h2>
-              <ul className="mt-4 space-y-3 text-slate-600">
+              <ul className="mt-5 space-y-3.5 text-sm sm:text-base text-slate-600 dark:text-slate-300">
                 {project.futurePlans.map((plan) => (
-                  <li key={plan} className="flex gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                    {plan}
+                  <li key={plan} className="flex items-start gap-3">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
+                    <span>{plan}</span>
                   </li>
                 ))}
               </ul>
             </section>
           </div>
 
-          <aside className="space-y-5">
-            <div className="rounded-[28px] border border-slate-200 bg-slate-900 p-8 text-white shadow-sm">
-              <h3 className="text-xl font-semibold">Project Links</h3>
+          {/* Sidebar */}
+          <aside className="space-y-6">
+            {/* Quick Links Card */}
+            <div className="rounded-[28px] border border-slate-200/80 bg-slate-900 p-7 text-white shadow-md dark:border-slate-800 dark:bg-slate-900">
+              <h3 className="text-lg font-bold">Project Links</h3>
               <div className="mt-5 flex flex-col gap-3">
                 <a
                   href={project.liveLink}
-                  className="rounded-2xl bg-white/10 px-4 py-3 text-center text-sm font-medium transition hover:bg-white/20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl bg-sky-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-sky-500"
                 >
-                  Live Project
+                  Live Preview ↗
                 </a>
                 <a
                   href={project.githubClient}
-                  className="rounded-2xl border border-white/20 px-4 py-3 text-center text-sm font-medium transition hover:bg-white/10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-center text-sm font-medium transition hover:bg-white/10"
                 >
-                  GitHub
+                  Repository ↗
                 </a>
                 <Link
-                  href="/"
-                  className="rounded-2xl border border-white/20 px-4 py-3 text-center text-sm font-medium transition hover:bg-white/10"
+                  href="/#projects"
+                  className="rounded-xl border border-white/10 px-4 py-3 text-center text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
                 >
-                  Back Home
+                  ← Back to Projects
                 </Link>
               </div>
             </div>
-            <div className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-900">Gallery</h3>
-              <div className="mt-5 grid gap-4">
-                {project.galleryImages.map((image) => (
+
+            {/* Gallery Images */}
+            <div className="rounded-[28px] border border-slate-200/80 bg-white p-7 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100!">
+                Screenshots & Gallery
+              </h3>
+              <div className="mt-5 space-y-4">
+                {project.galleryImages.map((image, idx) => (
                   <div
-                    key={image}
-                    className="relative h-40 overflow-hidden rounded-2xl"
+                    key={idx}
+                    className="relative h-44 overflow-hidden rounded-2xl border border-slate-200/60 bg-slate-100 dark:border-slate-800 dark:bg-slate-800"
                   >
                     <Image
                       src={image}
-                      alt={project.title}
+                      alt={`${project.title} screenshot ${idx + 1}`}
                       fill
-                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                      className="object-cover transition duration-300 hover:scale-105"
                     />
                   </div>
                 ))}
@@ -167,26 +201,34 @@ export default async function ProjectDetailPage({ params }) {
           </aside>
         </div>
 
-        <div className="flex flex-wrap justify-between gap-4 rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
+        {/* Previous / Next Project Navigation */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
           {prevProject ? (
             <Link
               href={`/projects/${prevProject.id}`}
-              className="text-sm font-medium text-slate-700"
+              className="flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400"
             >
-              ← Previous Project
+              <span>←</span>
+              <span className="truncate max-w-50 sm:max-w-75">
+                {prevProject.title}
+              </span>
             </Link>
           ) : (
-            <span />
+            <div />
           )}
+
           {nextProject ? (
             <Link
               href={`/projects/${nextProject.id}`}
-              className="text-sm font-medium text-slate-700"
+              className="flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400"
             >
-              Next Project →
+              <span className="truncate max-w-50 sm:max-w-75">
+                {nextProject.title}
+              </span>
+              <span>→</span>
             </Link>
           ) : (
-            <span />
+            <div />
           )}
         </div>
       </Container>

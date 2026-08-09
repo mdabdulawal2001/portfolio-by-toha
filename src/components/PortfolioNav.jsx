@@ -19,21 +19,22 @@ const PortfolioNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    const storedTheme = window.localStorage.getItem("portfolio-theme");
+    if (storedTheme) {
+      return storedTheme === "dark";
+    }
+
+    return (
+      window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ?? false
+    );
+  });
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem("portfolio-theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const initialDarkMode = storedTheme ? storedTheme === "dark" : prefersDark;
-
-    setIsDarkMode(initialDarkMode);
-    document.documentElement.classList.toggle("dark", initialDarkMode);
-    document.documentElement.style.colorScheme = initialDarkMode
-      ? "dark"
-      : "light";
-
     const onScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
@@ -49,7 +50,7 @@ const PortfolioNav = () => {
       }
     };
 
-    onScroll();
+    requestAnimationFrame(onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -73,21 +74,22 @@ const PortfolioNav = () => {
           className="flex items-center gap-3 text-slate-950 dark:text-slate-100"
         >
           {/* Profile Image */}
-          <div className="hidden flex h-10 w-10 items-center justify-center rounded-full text-white">
-            {/* <Image
+          {/* <div className="hidden flex h-10 w-10 items-center justify-center rounded-full text-white">
+            <Image
               className="rounded-full"
               width={500}
               height={500}
               src={}
               alt="Profile"
-            /> */}
-          </div>
+            />
+          </div> */}
           <div>
             <p
               className={`text-[20px] font-semibold tracking-tight ${isDarkMode ? "text-slate-100" : "text-slate-950"}`}
             >
-              <span className="text-sky-600 dark:text-sky-400">MD ABDUL
-              AWAL TOHA </span>
+              <span className="text-sky-600 dark:text-sky-400">
+                MD. ABDUL AWAL TOHA
+              </span>
             </p>
             <p
               className={`text-sm font-medium ${isDarkMode ? "text-slate-400" : "text-slate-700"}`}

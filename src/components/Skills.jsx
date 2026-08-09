@@ -48,7 +48,7 @@ const Skills = () => {
                     </div>
                     <div className="h-2.5 rounded-full bg-slate-100 dark:bg-slate-800">
                       <div
-                        className={`h-2.5 rounded-full bg-gradient-to-r ${skill.color}`}
+                        className={`h-2.5 rounded-full bg-linear-to-r ${skill.color}`}
                         style={{ width: `${skill.percentage}%` }}
                       />
                     </div>

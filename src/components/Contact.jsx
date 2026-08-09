@@ -18,19 +18,19 @@ import { socialLinks } from "@/data/socialLinks";
 const contactItems = [
   {
     label: "Email",
-    value: "mdabdulawal@example.com",
+    value: "mdabdulawal2001@gmail.com",
     href: socialLinks.email,
     icon: <FaEnvelope />,
   },
   {
     label: "Phone",
-    value: "+880 1700 000000",
+    value: "+880 1304341383",
     href: socialLinks.phone,
     icon: <FaPhoneAlt />,
   },
   {
     label: "WhatsApp",
-    value: "+880 1700 000000",
+    value: "+880 1304341383",
     href: socialLinks.whatsapp,
     icon: <FaWhatsapp />,
   },
