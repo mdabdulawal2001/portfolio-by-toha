@@ -65,6 +65,7 @@ const Banner = () => {
                 whileTap={{ scale: 0.985 }}
                 className="inline-block"
               >
+                {/* resume button */}
                 <Button
                   as={Link}
                   href="#contact"
