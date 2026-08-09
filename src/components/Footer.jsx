@@ -1,12 +1,56 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaFacebook, FaArrowUp } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaLinkedin, FaFacebook, FaArrowUp, FaArrowDown } from "react-icons/fa";
 import Container from "@/components/ui/Container";
 import { socialLinks } from "@/data/socialLinks";
 
 const Footer = () => {
+  // 🟢 Scroll Navigation Logic
+  const [scrollDirection, setScrollDirection] = useState("down");
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+
+      // পেইজ একদম টপে (১০০px এর ভেতরে) থাকলে বাটন হাইড থাকবে
+      if (scrollY < 100) {
+        setShowButton(false);
+        return;
+      }
+
+      setShowButton(true);
+
+      // নিচে স্ক্রোল করলে Up বাটন, উপরে স্ক্রোল করলে Down বাটন দেখাবে
+      if (scrollY > lastScrollY) {
+        setScrollDirection("up");
+      } else {
+        setScrollDirection("down");
+      }
+
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+
+    window.addEventListener("scroll", updateScrollDirection);
+    return () => window.removeEventListener("scroll", updateScrollDirection);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="relative overflow-hidden bg-slate-950 px-4 pb-12 pt-20 text-slate-300 sm:px-6 lg:px-8">
       
@@ -149,16 +193,38 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      {/* Floating Scroll-to-Top Button */}
-      <motion.a
-        href="#home"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-sky-500 text-white shadow-lg shadow-sky-500/40 transition hover:scale-110 hover:bg-sky-400"
-      >
-        <FaArrowUp />
-      </motion.a>
+      {/* 🚀 Dynamic Scroll Navigation Button (Up / Down) */}
+      <AnimatePresence>
+        {showButton && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed bottom-5 right-5 z-50 sm:bottom-6 sm:right-6"
+          >
+            {scrollDirection === "up" ? (
+              /* Up Arrow Button */
+              <button
+                onClick={scrollToTop}
+                aria-label="Scroll to top"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#2730e6] text-sm text-white shadow-lg shadow-sky-500/40 transition hover:scale-110 hover:bg-sky-400 sm:h-12 sm:w-12 sm:text-base"
+              >
+                <FaArrowUp />
+              </button>
+            ) : (
+              /* Down Arrow Button */
+              <button
+                onClick={scrollToBottom}
+                aria-label="Scroll to bottom"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#2730e6] text-sm text-white shadow-lg shadow-sky-500/40 transition hover:scale-110 hover:bg-sky-400 sm:h-12 sm:w-12 sm:text-base"
+              >
+                <FaArrowDown />
+              </button>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 };
