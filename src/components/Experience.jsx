@@ -30,10 +30,10 @@ const Experience = () => {
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">
                 {item.duration}
               </p>
-              <h3 className="mt-3 text-xl font-semibold text-slate-900 dark:text-white">
+              <h3 className="mt-3 text-xl font-semibold text-slate-900 dark:text-slate-100!">
                 {item.company}
               </h3>
-              <p className="mt-2 text-base font-medium text-slate-700 dark:text-slate-200">
+              <p className="mt-2 text-base font-medium text-slate-700 dark:text-slate-200!">
                 {item.designation}
               </p>
               <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">

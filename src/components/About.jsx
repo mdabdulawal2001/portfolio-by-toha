@@ -4,27 +4,28 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
+import aboutPic from "../assets/tohaabout.png";
 
 const highlights = [
   {
-    title: "Fast Learner",
+    title: "Full-Stack Development",
     description:
-      "I adapt quickly and enjoy translating ideas into clean interfaces.",
+      "Building seamless web applications with React, Next.js, Node.js, and clean component architecture.",
   },
   {
-    title: "Team Player",
+    title: "Problem Solving",
     description:
-      "Collaboration and clear communication shape how I build products.",
+      "Translating complex requirements into simple, maintainable, and efficient code solutions.",
   },
   {
-    title: "Creative Thinker",
+    title: "User-Centric UI/UX",
     description:
-      "I focus on delightful details that make experiences feel distinctive.",
+      "Crafting responsive, accessible, and delightful interfaces with modern animation tools.",
   },
   {
-    title: "Continuous Learner",
+    title: "Continuous Growth",
     description:
-      "I’m always refining my craft with modern tools and product trends.",
+      "Actively deepening expertise in scalable backend systems and modern engineering trends.",
   },
 ];
 
@@ -32,10 +33,11 @@ const About = () => {
   return (
     <section
       id="about"
-      className="bg-white px-4 py-24 text-slate-900 sm:px-6 lg:px-8 lg:py-32 dark:bg-slate-950 dark:text-slate-100"
+      className=" bg-white px-4 py-20 text-slate-900 sm:px-6 lg:px-8 lg:py-28 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          {/* Left Side: Work/Workspace Image or Code Snapshot */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -43,78 +45,47 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-sky-400/20 to-blue-700/20 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/90 p-3 shadow-[0_30px_90px_-30px_rgba(15,23,42,0.45)] dark:border-slate-700 dark:bg-slate-950">
-              <div className="relative h-[500px] overflow-hidden rounded-[24px] bg-slate-100 dark:bg-slate-900">
+            <div className="absolute inset-0 rounded-[32px] bg-linear-to-br from-sky-500/20 to-blue-600/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/80 p-3 shadow-xl backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
+              <div className="relative h-105 sm:h-120 overflow-hidden rounded-[24px] bg-slate-100 dark:bg-slate-800">
                 <Image
-                  src="/images/profile/profile.jpg"
-                  alt="About illustration"
+                  src={aboutPic}
+                  alt="MD ABDUL AWAL TOHA working"
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
             </div>
           </motion.div>
-
+          {/* Right Side: Content & Highlights */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
-            <SectionTitle
-              eyebrow="About Me"
-              title="Designing thoughtful interfaces from first idea to launch."
-              description="I care deeply about balance: clear storytelling, elegant visuals, and reliable engineering working together to create products people enjoy using."
-            />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[24px] border border-sky-200 bg-sky-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Programming Journey
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                  My path has been shaped by building real projects, refining UI
-                  details, and turning product ideas into maintainable software.
-                </p>
-              </div>
-              <div className="rounded-[24px] border border-sky-200 bg-sky-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Career Goal
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                  I want to help teams ship thoughtful digital experiences that
-                  are both beautiful and measurable in impact.
-                </p>
-              </div>
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Problem Solving
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                  I dig into constraints, simplify complexity, and make
-                  decisions that improve the end-user experience.
-                </p>
-              </div>
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-900/70">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                  Current Learning
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-                  I’m deepening my expertise in motion systems, component
-                  design, and modern full-stack workflows.
-                </p>
-              </div>
+            {/* SectionTitle Wrapper - Centered on Mobile */}
+            <div className="w-full flex flex-col items-center text-center lg:items-start lg:text-left">
+              <SectionTitle
+                eyebrow="About Me"
+                title="Designing & engineering thoughtful digital experiences."
+                description="I care deeply about balance: clear storytelling, elegant visuals, and reliable backend engineering working together to create scalable products."
+              />
             </div>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+
+            {/* 4 Clean Highlight Cards */}
+            <div className="mt-8 grid w-full gap-4 sm:grid-cols-2">
               {highlights.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-[24px] border border-sky-200 bg-sky-50 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/60"
+                  className="rounded-[24px] border border-slate-200/80 bg-slate-50/60 p-5 text-left transition duration-300 hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-slate-700"
                 >
-                  <h4 className="text-base font-semibold text-slate-900 dark:text-white">
+                  <h3 className="text-base font-semibold text-slate-900 dark:text-white">
                     {item.title}
-                  </h4>
-                  <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                     {item.description}
                   </p>
                 </div>

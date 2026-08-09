@@ -28,7 +28,7 @@ const Skills = () => {
               className="rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
             >
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100!">
                   {group.category}
                 </h3>
                 <span className="rounded-full bg-sky-100 px-3 py-1 text-sm text-sky-700 dark:bg-slate-800 dark:text-sky-300">

@@ -43,7 +43,7 @@ const Projects = () => {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
                     {project.title}
                   </h3>
                   <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
