@@ -5,7 +5,7 @@ import PortfolioNav from "@/components/PortfolioNav";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
-  title: "MD Abdul Awal | Full Stack Web Developer",
+  title: "MD. ABDUL AWAL TOHA | Full Stack Web Developer",
   description:
     "Premium portfolio showcasing modern web development, UI craftsmanship, and thoughtful product experiences.",
   keywords: ["portfolio", "nextjs", "frontend", "web developer", "full stack"],
