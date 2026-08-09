@@ -60,7 +60,7 @@ const Contact = () => {
               <span className="inline-flex rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-sky-700 dark:bg-sky-500/10 dark:text-sky-300">
                 Let’s connect
               </span>
-              <h3 className="mt-5 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-100!">
+              <h3 className="mt-5 text-3xl font-semibold tracking-tight text-[#1822d8] dark:text-slate-100!">
                 Contact Details
               </h3>
               <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -73,7 +73,7 @@ const Contact = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="group flex items-center gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 transition duration-200 hover:border-sky-500 hover:bg-white dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-sky-500 dark:hover:bg-slate-800"
+                  className="group flex items-center gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-4 transition duration-200 hover:border-sky-500 hover:bg-sky-200 dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-sky-500 dark:hover:bg-slate-800"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300">
                     {item.icon}
@@ -123,7 +123,7 @@ const Contact = () => {
               <span className="inline-flex rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                 Get in touch
               </span>
-              <h3 className="mt-5 text-3xl font-semibold tracking-tight text-slate-950 dark:text-slate-100!">
+              <h3 className="mt-5 text-3xl font-semibold tracking-tight text-[#1822d8] dark:text-slate-100!">
                 Send me a message
               </h3>
               <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300">
@@ -159,7 +159,7 @@ const Contact = () => {
                 />
                 <Button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-sky-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-700 focus:ring-2 focus:ring-sky-500/30"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#0b14ba] dark:bg-sky-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-700 focus:ring-2 focus:ring-sky-500/30"
                 >
                   <FaPaperPlane className="h-4 w-4" />
                   Send Message

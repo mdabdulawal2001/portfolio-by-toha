@@ -36,7 +36,7 @@ const Skills = () => {
                 </span>
               </div>
               <div className="mt-7 space-y-5">
-                {group.items.map((skill) => (
+                {group.items.map((skill, sIndex) => (
                   <div key={skill.name}>
                     <div className="mb-2 flex items-center justify-between text-sm">
                       <span className="font-medium text-slate-700 dark:text-slate-200">
@@ -47,9 +47,13 @@ const Skills = () => {
                       </span>
                     </div>
                     <div className="h-2.5 rounded-full bg-slate-100 dark:bg-slate-800">
-                      <div
+                      <motion.div
+                        initial={{ width: "0%" }}
+                        whileInView={{ width: `${skill.percentage}%` }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.9, delay: sIndex * 0.06 }}
                         className={`h-2.5 rounded-full bg-linear-to-r ${skill.color}`}
-                        style={{ width: `${skill.percentage}%` }}
+                        style={{ width: "0%" }}
                       />
                     </div>
                   </div>

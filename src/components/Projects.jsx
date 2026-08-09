@@ -72,7 +72,7 @@ const Projects = () => {
 
                   {/* Body Content */}
                   <div className="p-6 sm:p-7 text-left">
-                    <h3 className="text-xl font-bold tracking-tight text-slate-900 transition-colors group-hover:text-sky-600 dark:text-slate-100! dark:group-hover:text-sky-400">
+                    <h3 className="text-xl font-bold tracking-tight text-[#2730e6] transition-colors group-hover:text-[#040fe7] dark:text-slate-100! dark:group-hover:text-sky-400">
                       {project.title}
                     </h3>
 
@@ -106,7 +106,7 @@ const Projects = () => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 rounded-xl bg-sky-600 px-3 py-2.5 text-center text-xs font-semibold text-white shadow-xs transition-all hover:bg-sky-700 hover:shadow-md dark:bg-sky-500 dark:hover:bg-sky-600"
+                      className="flex-1 rounded-xl bg-[#1b24cd] px-3 py-2.5 text-center text-xs font-semibold text-white shadow-xs transition-all hover:bg-sky-700 hover:shadow-md dark:bg-sky-500 dark:hover:bg-sky-600"
                     >
                       Live Demo
                     </a>

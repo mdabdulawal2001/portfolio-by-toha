@@ -53,7 +53,7 @@ const Education = () => {
                   </div>
 
                   {/* Institution Name */}
-                  <h3 className="mt-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
+                  <h3 className="mt-2 text-xl font-bold tracking-tight text-[#0b14ba] sm:text-2xl dark:text-white">
                     {item.institution}
                   </h3>
                 </div>

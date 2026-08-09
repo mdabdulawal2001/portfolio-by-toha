@@ -47,7 +47,7 @@ const Experience = () => {
                 </div>
 
                 {/* Role Title */}
-                <h3 className="mt-3 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
+                <h3 className="mt-3 text-xl font-bold tracking-tight text-[#1822d8] sm:text-2xl dark:text-white">
                   {item.role}
                 </h3>
 
@@ -87,7 +87,7 @@ const Experience = () => {
               {/* Technologies Badges with Next.js Image */}
               {item.technologies && item.technologies.length > 0 && (
                 <div className="mt-8 border-t border-slate-100 pt-5 dark:border-slate-800/80">
-                  <p className="mb-3 text-xs font-semibold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                  <p className="mb-3 text-xs font-semibold tracking-wider text-slate-600 uppercase dark:text-slate-500">
                     Key Technologies
                   </p>
                   <div className="flex flex-wrap gap-2">

@@ -4,7 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@heroui/react";
-import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaFacebook,
+  FaEnvelope,
+  FaDownload,
+  FaArrowRight,
+} from "react-icons/fa";
 import Container from "@/components/ui/Container";
 import { socialLinks } from "@/data/socialLinks";
 import profileImage from "@/assets/profilePic.jpeg";
@@ -34,13 +41,13 @@ const Banner = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
-            <p className="inline-flex items-center gap-3 rounded-full border border-sky-200 bg-white/70 px-4 py-2 text-sm font-medium text-sky-700 shadow-sm dark:border-sky-800/60 dark:bg-slate-900/60 dark:text-sky-300">
+            <p className="inline-flex items-center gap-3 rounded-full border border-sky-200 bg-white/70 px-4 py-2 text-sm font-medium  text-[#0b14ba] shadow-sm dark:border-sky-800/60 dark:bg-slate-900/60 dark:text-sky-300">
               <span className="flex h-3 w-3 items-center justify-center rounded-full bg-sky-500 shadow-[0_0_0_8px_rgba(56,189,248,0.12)] animate-pulse">
-                <span className="h-2 w-2 rounded-full bg-sky-600" />
+                <span className="h-2 w-2 rounded-full bg-[#0b14ba] dark:bg-sky-500" />
               </span>
               Available for ambitious product teams
             </p>
-            <h1 className="mt-8 max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-7xl dark:text-white">
+            <h1 className="mt-8 max-w-2xl text-4xl font-semibold tracking-tight text-[#2730d8] sm:text-5xl lg:text-7xl dark:text-white">
               Building polished web experiences with modern frontend craft.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 dark:text-slate-300">
@@ -49,22 +56,47 @@ const Banner = () => {
               scalable architecture.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <Button
-                as={Link}
-                href="#contact"
-                color="primary"
-                className="rounded-full bg-sky-600 px-7 py-5 text-sm font-semibold text-white shadow-[0_18px_45px_-25px_rgba(14,165,233,0.75)] transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_60px_-30px_rgba(14,165,233,0.85)] hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40 dark:bg-sky-400 dark:text-slate-950 dark:shadow-[0_18px_45px_-25px_rgba(14,165,233,0.45)] dark:hover:bg-sky-300"
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.985 }}
+                className="inline-block"
               >
-                Download Resume
-              </Button>
-              <Button
-                as={Link}
-                href="#projects"
-                variant="bordered"
-                className="rounded-full border border-slate-900 bg-slate-900 px-7 py-5 text-sm font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-slate-800 hover:bg-slate-800 dark:border-slate-300 dark:bg-slate-100 dark:text-slate-950 dark:hover:border-slate-400 dark:hover:bg-slate-200"
+                <Button
+                  as={Link}
+                  href="#contact"
+                  color="primary"
+                  className="rounded-full bg-[#0b14ba] px-7 py-5 text-sm font-semibold text-white shadow-[0_18px_45px_-25px_rgba(14,165,233,0.75)] transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_22px_60px_-30px_rgba(14,165,233,0.85)] hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40 dark:bg-sky-400 dark:text-slate-950 dark:shadow-[0_18px_45px_-25px_rgba(14,165,233,0.45)] dark:hover:bg-sky-300"
+                >
+                  <span className="-ml-1 mr-3 inline-flex">
+                    <FaDownload className="h-4 w-4" aria-hidden />
+                  </span>
+                  Download Resume
+                </Button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.33 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.985 }}
+                className="inline-block"
               >
-                View Projects
-              </Button>
+                <Button
+                  as={Link}
+                  href="#projects"
+                  variant="bordered"
+                  className="rounded-full border border-slate-900 bg-slate-900 px-7 py-5 text-sm font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-slate-800 hover:bg-slate-800 dark:border-slate-300 dark:bg-slate-100 dark:text-slate-950 dark:hover:border-slate-400 dark:hover:bg-slate-200"
+                >
+                  View Projects
+                  <span className="-mr-1 ml-3 inline-flex">
+                    <FaArrowRight className="h-4 w-4" aria-hidden />
+                  </span>
+                </Button>
+              </motion.div>
             </div>
             <div className="mt-10 flex justify-center gap-3 lg:justify-start">
               {socialItems.map((item) => (
@@ -81,14 +113,20 @@ const Banner = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            initial={{ opacity: 0, scale: 0.95, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.12 }}
+            whileHover={{ scale: 1.03, rotate: 0.6, y: -6 }}
+            whileTap={{ scale: 0.995 }}
             className="relative mx-auto w-full max-w-lg"
           >
             <div className="absolute inset-0 rounded-[36px] bg-linear-to-br from-sky-400/20 to-blue-700/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white/80 p-3 shadow-[0_30px_100px_-30px_rgba(15,23,42,0.35)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/70">
-              <div className="relative h-130 overflow-hidden rounded-[28px] bg-slate-950">
+              <motion.div
+                className="relative h-130 overflow-hidden rounded-[28px] bg-slate-950"
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.35 }}
+              >
                 <Image
                   src={profileImage}
                   alt="MD ABDUL AWAL portrait"
@@ -96,7 +134,7 @@ const Banner = () => {
                   className="object-cover"
                   priority
                 />
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

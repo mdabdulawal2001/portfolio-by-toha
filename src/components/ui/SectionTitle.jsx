@@ -11,7 +11,7 @@ const SectionTitle = ({ eyebrow, title, description }) => {
       <p className="mb-6 text-3xl border-sky-600 font-semibold uppercase tracking-[0.32em] text-sky-600 dark:text-sky-400">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl text-[#066cf1] dark:text-slate-100!">
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl text-[#0b14ba] dark:text-slate-100!">
         {title}
       </h2>
       <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">

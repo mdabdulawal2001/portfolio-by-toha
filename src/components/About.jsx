@@ -82,7 +82,7 @@ const About = () => {
                   key={item.title}
                   className="rounded-[24px] border border-slate-200/80 bg-slate-50/60 p-5 text-left transition duration-300 hover:border-sky-300 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-slate-700"
                 >
-                  <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                  <h3 className="text-base font-semibold text-[#0b14ba] dark:text-white">
                     {item.title}
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">

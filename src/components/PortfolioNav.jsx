@@ -19,20 +19,25 @@ const PortfolioNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
     const storedTheme = window.localStorage.getItem("portfolio-theme");
-    if (storedTheme) {
-      return storedTheme === "dark";
-    }
+    const prefersDark =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = storedTheme ? storedTheme === "dark" : prefersDark || false;
 
-    return (
-      window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ?? false
-    );
-  });
+    let raf = 0;
+    raf = requestAnimationFrame(() => {
+      if (initial !== isDarkMode) setIsDarkMode(initial);
+    });
+
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -84,18 +89,56 @@ const PortfolioNav = () => {
             />
           </div> */}
           <div>
-            <p
-              className={`text-[20px] font-semibold tracking-tight ${isDarkMode ? "text-slate-100" : "text-slate-950"}`}
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className={`text-[20px] font-semibold tracking-tight ${
+                isDarkMode ? "text-slate-100" : "text-slate-950"
+              }`}
             >
-              <span className="text-sky-600 dark:text-sky-400">
-                MD. ABDUL AWAL TOHA
-              </span>
-            </p>
-            <p
-              className={`text-sm font-medium ${isDarkMode ? "text-slate-400" : "text-slate-700"}`}
-            >
-              <i>Full Stack Developer</i>
-            </p>
+              <motion.span
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative inline-block cursor-default font-bold text-[#0b14ba] dark:text-sky-400"
+              >
+                {/* Light & Dark Adaptive Breathing Glow */}
+                <motion.span
+                  animate={{
+                    opacity: [0.4, 0.8, 0.4],
+                    scale: [0.98, 1.03, 0.98],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute inset-0 z-0 rounded-md bg-blue-600/20 blur-md dark:bg-sky-400/35"
+                  aria-hidden="true"
+                />
+
+                {/* Clean Main Text */}
+                <span className="relative z-10">MD. ABDUL AWAL TOHA</span>
+              </motion.span>
+            </motion.p>
+            <div className="overflow-hidden whitespace-nowrap w-full">
+              <motion.p
+                className={`inline-block text-sm font-medium ${
+                  isDarkMode ? "text-slate-400" : "text-slate-700"
+                }`}
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 10,
+                  ease: "linear",
+                }}
+              >
+                <i className="font-semibold text-[17px] text-[#5055bd]">
+                  Full Stack Developer
+                </i>
+              </motion.p>
+            </div>
           </div>
         </Link>
 
@@ -104,7 +147,7 @@ const PortfolioNav = () => {
             <Link
               key={item.href}
               href={`#${item.href}`}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeSection === item.href ? "bg-sky-600 text-white shadow-sm dark:bg-sky-400 dark:text-slate-950" : "text-slate-700 hover:bg-sky-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"}`}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeSection === item.href ? "bg-[#0a14d3] text-white shadow-sm dark:bg-sky-400 dark:text-slate-950" : "text-slate-700 hover:bg-sky-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"}`}
             >
               {item.label}
             </Link>
@@ -117,15 +160,15 @@ const PortfolioNav = () => {
             aria-label="Toggle theme"
             aria-pressed={isDarkMode}
             onClick={() => setIsDarkMode((prev) => !prev)}
-            className={`hidden h-11 items-center justify-center rounded-full border px-3 shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition sm:flex ${isDarkMode ? "border-slate-700 bg-slate-900/80 text-slate-100 hover:bg-slate-800" : "border-slate-300 bg-white/90 text-slate-950 hover:bg-slate-100"}`}
+            className={`hidden h-11 items-center justify-center rounded-full border px-3 shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition sm:flex cursor-pointer ${isDarkMode ? "border-slate-700 bg-slate-900/80 text-slate-100 hover:bg-slate-800" : "border-slate-300 bg-[#0b14ba] text-slate-950 hover:bg-[#474fe9]"}`}
           >
             {isDarkMode ? (
               <FaSun className="text-amber-400" />
             ) : (
-              <FaMoon className="text-slate-950" />
+              <FaMoon className="text-white/90" />
             )}
             <span
-              className={`ml-2 text-sm font-medium ${isDarkMode ? "text-slate-100" : "text-slate-950"}`}
+              className={`ml-2 text-sm font-medium ${isDarkMode ? "text-slate-100" : "text-white/90"}`}
             >
               {isDarkMode ? "Light" : "Dark"}
             </span>
