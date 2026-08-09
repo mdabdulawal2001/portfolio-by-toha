@@ -43,30 +43,115 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
-  const sendEmail = (e) => {
+  const safeStringify = (obj) => {
+    try {
+      return JSON.stringify(obj);
+    } catch (_) {
+      try {
+        const cache = new Set();
+        return JSON.stringify(obj, (key, value) => {
+          if (typeof value === "object" && value !== null) {
+            if (cache.has(value)) return "[Circular]";
+            cache.add(value);
+          }
+          return value;
+        });
+      } catch (__) {
+        return String(obj);
+      }
+    }
+  };
+
+  // EmailJS configuration exposed at build via NEXT_PUBLIC_*
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const isEmailConfigured = Boolean(serviceId && templateId && publicKey);
+
+  const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatusMessage("");
 
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setStatusMessage("Message sent successfully!");
-          formRef.current.reset();
-        },
-        (error) => {
-          setLoading(false);
-          setStatusMessage("Failed to send message. Please try again.");
-          console.error("EmailJS Error:", error);
-        },
+    if (!isEmailConfigured) {
+      console.warn(
+        "EmailJS missing configuration:",
+        safeStringify({
+          serviceId,
+          templateId,
+          publicKey,
+        }),
       );
+      setStatusMessage(
+        "Email service is not configured. Please contact me directly.",
+      );
+      setLoading(false);
+      return;
+    }
+
+    if (!formRef.current) {
+      setStatusMessage("Form not ready. Please refresh and try again.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        formRef.current,
+        publicKey,
+      );
+
+      setLoading(false);
+      if (result && result.status === 200) {
+        setStatusMessage("Message sent successfully!");
+        try {
+          formRef.current.reset();
+        } catch (err) {
+          /* ignore reset errors */
+        }
+      } else {
+        setStatusMessage("Failed to send message. Please try again.");
+        console.warn("EmailJS unexpected response:", safeStringify(result));
+      }
+    } catch (error) {
+      setLoading(false);
+      // Serialize safely
+      let body = "";
+      try {
+        body = safeStringify(error);
+      } catch (e) {
+        body = String(error);
+      }
+
+      // Try to detect common EmailJS config errors (service/template/public key)
+      let parsed = null;
+      try {
+        parsed = JSON.parse(body);
+      } catch (e) {
+        parsed = null;
+      }
+
+      if (
+        (parsed &&
+          parsed.status === 400 &&
+          /service id not found/i.test(parsed.text || "")) ||
+        /service ID not found/i.test(body) ||
+        /service id not found/i.test(body)
+      ) {
+        setStatusMessage(
+          "Email service misconfigured: service ID not found. Check NEXT_PUBLIC_EMAILJS_SERVICE_ID and EmailJS dashboard.",
+        );
+        console.warn(
+          "EmailJS Configuration Error:",
+          safeStringify(parsed || body),
+        );
+      } else {
+        setStatusMessage("Failed to send message. Please try again.");
+        console.warn("EmailJS Error:", safeStringify(parsed || body));
+      }
+    }
   };
 
   return (
@@ -165,58 +250,81 @@ const Contact = () => {
             </div>
 
             <div className="rounded-[28px] border-none p-0 transition duration-200 md:border md:border-slate-200 md:bg-white md:p-6 md:shadow-xl md:shadow-slate-200/40 dark:md:border-slate-700 dark:md:bg-slate-950/95 dark:md:shadow-slate-950/20">
-              <form
-                ref={formRef}
-                onSubmit={sendEmail}
-                className="grid w-full gap-5 bg-transparent"
-              >
-                <div className="grid w-full grid-cols-1 gap-5">
-                  <Input
-                    name="from_name"
-                    label="Name"
-                    placeholder="Your name"
-                    required
-                    className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
-                  />
-                  <Input
-                    name="from_email"
-                    type="email"
-                    label="Email"
-                    placeholder="Your email address"
-                    required
-                    className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
-                  />
-                </div>
-                <Input
-                  name="project_inquiry"
-                  label="Subject"
-                  placeholder="Project inquiry"
-                  required
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
-                />
-                <TextArea
-                  name="message"
-                  label="Message"
-                  placeholder="Tell me about your idea..."
-                  rows={6}
-                  required
-                  className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
-                />
-                <Button
-                  type="submit"
-                  isDisabled={loading}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0b14ba] px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-700 focus:ring-2 focus:ring-sky-500/30 disabled:opacity-50 dark:bg-sky-600"
+              {isEmailConfigured ? (
+                <form
+                  ref={formRef}
+                  onSubmit={sendEmail}
+                  className="grid w-full gap-5 bg-transparent"
                 >
-                  <FaPaperPlane className="h-4 w-4" />
-                  {loading ? "Sending..." : "Send Message"}
-                </Button>
+                  <div className="grid w-full grid-cols-1 gap-5">
+                    <Input
+                      name="from_name"
+                      label="Name"
+                      placeholder="Your name"
+                      required
+                      className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                    />
+                    <Input
+                      name="from_email"
+                      type="email"
+                      label="Email"
+                      placeholder="Your email address"
+                      required
+                      className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                    />
+                  </div>
+                  <Input
+                    name="project_inquiry"
+                    label="Subject"
+                    placeholder="Project inquiry"
+                    required
+                    className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                  />
+                  <TextArea
+                    name="message"
+                    label="Message"
+                    placeholder="Tell me about your idea..."
+                    rows={6}
+                    required
+                    className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-950 shadow-sm placeholder:text-slate-400 transition duration-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
+                  />
+                  <Button
+                    type="submit"
+                    isDisabled={loading}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0b14ba] px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-700 focus:ring-2 focus:ring-sky-500/30 disabled:opacity-50 dark:bg-sky-600"
+                  >
+                    <FaPaperPlane className="h-4 w-4" />
+                    {loading ? "Sending..." : "Send Message"}
+                  </Button>
 
-                {statusMessage && (
-                  <p className="mt-2 text-center text-sm font-medium text-sky-500">
-                    {statusMessage}
+                  {statusMessage && (
+                    <p className="mt-2 text-center text-sm font-medium text-sky-500">
+                      {statusMessage}
+                    </p>
+                  )}
+                </form>
+              ) : (
+                <div className="grid w-full gap-4 p-6">
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
+                    The email service is not configured in this environment. You
+                    can still reach me directly at
+                    <a
+                      href={`mailto:mdabdulawal2001@gmail.com?subject=Contact%20via%20Portfolio`}
+                      className="ml-1 font-medium text-sky-600 underline"
+                    >
+                      mdabdulawal2001@gmail.com
+                    </a>
+                    .
                   </p>
-                )}
-              </form>
+                  <a
+                    href={`mailto:mdabdulawal2001@gmail.com?subject=Contact%20via%20Portfolio`}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0b14ba] px-6 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-sky-700"
+                  >
+                    <FaPaperPlane className="h-4 w-4" />
+                    Email Me
+                  </a>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
