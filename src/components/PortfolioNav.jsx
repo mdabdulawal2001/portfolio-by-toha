@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaGithub,
@@ -16,6 +17,7 @@ import { socialLinks } from "@/data/socialLinks";
 import Image from "next/image";
 
 const PortfolioNav = () => {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -40,6 +42,21 @@ const PortfolioNav = () => {
   }, []);
 
   useEffect(() => {
+    const updateActiveFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && navigationItems.some((item) => item.href === hash)) {
+        setActiveSection(hash);
+        return;
+      }
+
+      if (window.location.pathname.startsWith("/projects")) {
+        setActiveSection("projects");
+        return;
+      }
+
+      setActiveSection("home");
+    };
+
     const onScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
@@ -50,15 +67,27 @@ const PortfolioNav = () => {
       const current = sections.findLast(
         (section) => window.scrollY >= section.offsetTop - 140,
       );
+
       if (current) {
         setActiveSection(current.id);
+      } else if (window.location.pathname.startsWith("/projects")) {
+        setActiveSection("projects");
+      } else {
+        setActiveSection("home");
       }
     };
 
+    updateActiveFromHash();
     requestAnimationFrame(onScroll);
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("hashchange", updateActiveFromHash);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", updateActiveFromHash);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
@@ -75,7 +104,7 @@ const PortfolioNav = () => {
     >
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 text-slate-950 dark:text-slate-100 sm:px-6 lg:px-8">
         <Link
-          href="#home"
+          href="/#home"
           className="flex items-center gap-3 text-slate-950 dark:text-slate-100"
         >
           {/* Profile Image */}
@@ -146,7 +175,7 @@ const PortfolioNav = () => {
           {navigationItems.map((item) => (
             <Link
               key={item.href}
-              href={`#${item.href}`}
+              href={`/#${item.href}`}
               className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeSection === item.href ? "bg-[#0a14d3] text-white shadow-sm dark:bg-sky-400 dark:text-slate-950" : "text-slate-700 hover:bg-sky-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"}`}
             >
               {item.label}
@@ -235,7 +264,7 @@ const PortfolioNav = () => {
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
-                href={`#${item.href}`}
+                href={`/#${item.href}`}
                 className={`mb-2 flex rounded-2xl px-4 py-3 text-base font-medium transition ${activeSection === item.href ? "bg-sky-600 text-white shadow-sm dark:bg-sky-400 dark:text-slate-950" : "text-slate-800 hover:bg-sky-50 dark:text-slate-200 dark:hover:bg-slate-800"}`}
                 onClick={() => setIsMenuOpen(false)}
               >

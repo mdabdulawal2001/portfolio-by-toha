@@ -85,17 +85,17 @@ const Banner = () => {
                 whileTap={{ scale: 0.985 }}
                 className="inline-block"
               >
-                <Button
-                  as={Link}
-                  href="#projects"
-                  variant="bordered"
-                  className="rounded-full border border-slate-900 bg-slate-900 px-7 py-5 text-sm font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-slate-800 hover:bg-slate-800 dark:border-slate-300 dark:bg-slate-100 dark:text-slate-950 dark:hover:border-slate-400 dark:hover:bg-slate-200"
-                >
-                  View Projects
-                  <span className="-mr-1 ml-3 inline-flex">
-                    <FaArrowRight className="h-4 w-4" aria-hidden />
-                  </span>
-                </Button>
+                <Link href="#projects" className="inline-block">
+                  <Button
+                    variant="bordered"
+                    className="rounded-full border border-slate-900 bg-slate-900 px-7 py-5 text-sm font-semibold text-white shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-slate-800 hover:bg-slate-800 dark:border-slate-300 dark:bg-slate-100 dark:text-slate-950 dark:hover:border-slate-400 dark:hover:bg-slate-200"
+                  >
+                    View Projects
+                    <span className="-mr-1 ml-3 inline-flex">
+                      <FaArrowRight className="h-4 w-4" aria-hidden />
+                    </span>
+                  </Button>
+                </Link>
               </motion.div>
             </div>
             <div className="mt-10 flex justify-center gap-3 lg:justify-start">
