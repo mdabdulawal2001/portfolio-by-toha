@@ -47,6 +47,7 @@ const Banner = () => {
               </span>
               Available for ambitious product teams
             </p>
+            {/* section heading */}
             <h1 className="mt-8 max-w-2xl text-4xl font-semibold tracking-tight text-[#2730d8] sm:text-5xl lg:text-7xl dark:text-white">
               Building polished web experiences with modern frontend craft.
             </h1>
