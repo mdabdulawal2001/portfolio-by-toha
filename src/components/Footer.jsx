@@ -26,7 +26,7 @@ const Footer = () => {
 
       setShowButton(true);
 
-      // নিচে স্ক্রোল করলে Up বাটন, উপরে স্ক্রোল করলে Down বাটন দেখাবে
+      // নিচে স্ক্রোল করলে Up button, উপরে scroll করলে Down বাটন দেখাবে
       if (scrollY > lastScrollY) {
         setScrollDirection("up");
       } else {
@@ -144,7 +144,7 @@ const Footer = () => {
           className="absolute -bottom-10 -left-1/4 h-48 w-[150%] rounded-[100%] bg-linear-to-r from-sky-500/20 via-cyan-400/25 to-blue-600/20 blur-2xl"
         />
 
-        {/* Layer 2 - Fast Interactive Dynamic Ripple Glow */}
+        {/* layer 2- Fast Interactive Dynamic Ripple Glow */}
         <motion.div
           animate={{
             x: ["10%", "-10%", "10%"],
@@ -160,7 +160,7 @@ const Footer = () => {
           className="absolute -bottom-14 -left-1/4 h-44 w-[150%] rounded-[100%] bg-linear-to-r from-indigo-500/15 via-sky-400/20 to-teal-400/15 blur-xl"
         />
 
-        {/* Dynamic Curved Vector Wave SVG with Motion */}
+        {/* Dynamic Curved Vector Wave SVG pic with Motion */}
         <motion.div
           animate={{
             x: ["-3%", "3%", "-3%"],
