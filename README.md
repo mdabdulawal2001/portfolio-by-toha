@@ -60,27 +60,10 @@ This repository contains the **portfolio frontend**. Some showcased projects hav
 
 ## 📸 Screenshots
 
-Replace each marked placeholder below with an image element or Markdown image when you are ready to add screenshots.
-
 <p align="center">
-  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with the homepage / hero screenshot. -->
-  <strong>📷 Add Homepage and Hero Screenshot Here</strong>
+<img width="1453" height="840" alt="Screenshot 2026-10-23 181235" src="https://github.com/user-attachments/assets/4c3ccf7a-c028-4efa-8753-b7e0c58210d8" />
 </p>
 
-<p align="center">
-  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with the projects section screenshot. -->
-  <strong>📷 Add Projects Section Screenshot Here</strong>
-</p>
-
-<p align="center">
-  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with a project details page screenshot. -->
-  <strong>📷 Add Project Details Screenshot Here</strong>
-</p>
-
-<p align="center">
-  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with a mobile layout screenshot. -->
-  <strong>📷 Add Mobile Layout Screenshot Here</strong>
-</p>
 
 ---
 
