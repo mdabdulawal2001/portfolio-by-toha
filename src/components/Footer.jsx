@@ -8,7 +8,7 @@ import Container from "@/components/ui/Container";
 import { socialLinks } from "@/data/socialLinks";
 
 const Footer = () => {
-  // 🟢 Scroll Navigation Logic
+  // Scroll Navigation Logic
   const [scrollDirection, setScrollDirection] = useState("down");
   const [showButton, setShowButton] = useState(false);
 
@@ -18,7 +18,6 @@ const Footer = () => {
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
 
-      // পেইজ একদম টপে (১০০px এর ভেতরে) থাকলে বাটন হাইড থাকবে
       if (scrollY < 100) {
         setShowButton(false);
         return;
@@ -26,7 +25,6 @@ const Footer = () => {
 
       setShowButton(true);
 
-      // নিচে স্ক্রোল করলে Up button, উপরে scroll করলে Down বাটন দেখাবে
       if (scrollY > lastScrollY) {
         setScrollDirection("up");
       } else {
@@ -125,7 +123,7 @@ const Footer = () => {
         </div>
       </Container>
 
-      {/* 🌊 Premium Animated Fluid Wave Overlay */}
+      {/* Premium Animated Fluid Wave Overlay */}
       <div className="absolute inset-x-0 bottom-0 z-20 h-56 w-full overflow-hidden pointer-events-none opacity-70">
         
         {/* Layer 1 - Slow Swaying Deep Sky Glow */}
