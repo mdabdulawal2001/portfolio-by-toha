@@ -1,5 +1,129 @@
 export const projects = [
   {
+    id: 7,
+    slug: "tripswift",
+    title: "Trip Swift — Online Ticket Booking Platform",
+    shortDescription:
+      "A full-stack ticket booking platform built with Next.js, Express.js, MongoDB, Better Auth, JWT, and Stripe, featuring role-based dashboards, booking management, online payments, and downloadable PDF tickets.",
+    fullDescription:
+      "Trip Swift is a modern, responsive online ticket booking platform that connects users, vendors, and administrators through a complete ticket discovery, booking, payment, and transaction workflow. Built with Next.js App Router, Express.js, MongoDB, Better Auth, JWT, and Stripe, it supports bus, train, launch, and plane ticket listings. Users can search and filter tickets, request bookings, pay for accepted bookings through Stripe, view transaction history, and download PDF tickets. Vendors can manage tickets, process booking requests, and analyze revenue through line, pie, and bar charts. Administrators can manage users, review tickets, control vendor access, and manage homepage advertisements. The platform includes protected APIs, role-based dashboards, responsive UI, and dark/light mode.",
+    // Add your actual Trip Swift screenshot URLs here.
+    coverImage: "https://github.com/user-attachments/assets/b35e11a9-51d8-4297-a46f-9706403c473a",
+    galleryImages: ["https://github.com/user-attachments/assets/b35e11a9-51d8-4297-a46f-9706403c473a","https://github.com/user-attachments/assets/ff86bd1a-56a8-4a43-b37d-6f94de25ab45","https://github.com/user-attachments/assets/14041b82-4fdf-4323-b8d6-9acec64393ba"],
+    technologyStack: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Better Auth",
+      "JWT",
+      "Stripe",
+      "Tailwind CSS",
+      "HeroUI",
+      "Framer Motion",
+      "Recharts",
+      "jsPDF",
+      "Swiper",
+      "Next Themes",
+      "SweetAlert2",
+      "React Hot Toast",
+    ],
+    features: [
+      "Search, filter, sort, and paginate tickets across bus, train, launch, and plane transport types",
+      "Role-based dashboards for users, vendors, and administrators",
+      "Complete booking workflow with quantity validation and vendor approval or rejection",
+      "Stripe checkout integration with payment verification and transaction history",
+      "Generate and download PDF tickets and relevant dashboard reports",
+      "Vendor revenue analytics using line, pie, and bar charts",
+      "Admin ticket approval, user and role management, vendor fraud controls, and homepage advertisements",
+      "JWT-protected backend APIs, responsive UI, dark/light mode, and image uploads through ImgBB",
+    ],
+    challenges: [
+      "Coordinating the booking lifecycle across users, vendors, and administrators",
+      "Integrating Stripe checkout with payment verification, booking updates, and transaction records",
+      "Implementing authentication, JWT verification, role-based access, and protected backend APIs",
+      "Maintaining ticket quantity validation and booking status throughout the payment workflow",
+      "Generating downloadable PDF tickets and reports from relevant dashboard data",
+      "Deploying and configuring separate frontend and backend applications with production environment variables",
+    ],
+    futurePlans: [
+      "Add automated tests for booking, payment, and authorization workflows",
+      "Improve booking notifications and payment status updates",
+      "Enhance dashboard analytics and revenue reporting",
+      "Expand ticket discovery with additional search and filtering options",
+      "Improve accessibility and loading-state experiences",
+    ],
+    liveLink: "https://trip-swift-client.vercel.app/",
+    githubClient: "https://github.com/mdabdulawal2001/trip-swift-client",
+    githubServer: "https://github.com/mdabdulawal2001/trip-swift-server",
+    backendLink: "https://trip-swift-server.onrender.com/",
+    category: "Full Stack",
+    status: "Featured",
+    featured: true,
+    date: "2026",
+  },
+
+  {
+    id: 2,
+    slug: "ideavault",
+    title: "IdeaVault — Modern Idea Management Platform",
+    shortDescription:
+      "A full-stack idea management platform built with Next.js, Express.js, MongoDB, and Better Auth, featuring idea CRUD, secure authentication, profile management, and interactive comments.",
+    fullDescription:
+      "IdeaVault is a modern, fully responsive full-stack platform that enables users to discover, create, manage, and discuss ideas. Built with Next.js App Router, Express.js, MongoDB, and Better Auth, it supports email/password and Google authentication, protected frontend routes and backend APIs, and ownership-based authorization. Users can search and filter public ideas by title, category, and date, manage their profiles, and interact through a comment system with edit and delete functionality for their own comments. The application uses a separate REST API backend and focuses on reusable components, responsive UI, secure resource management, and a smooth user experience.",
+    coverImage:
+      "https://github.com/user-attachments/assets/d759bb90-ceb6-4570-80d8-52005f70c495",
+    galleryImages: [
+      "https://github.com/user-attachments/assets/d759bb90-ceb6-4570-80d8-52005f70c495",
+      "https://github.com/user-attachments/assets/754395bd-7cf7-4370-ad6c-90adf4dbe025",
+      "https://github.com/user-attachments/assets/1dcbf9e3-5aac-4b47-87ca-49b8e0b2530d",
+    ],
+    technologyStack: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Better Auth",
+      "Tailwind CSS",
+      "HeroUI",
+      "Framer Motion",
+      "Lucide React",
+      "React Hot Toast",
+    ],
+    features: [
+      "Create, view, update, and delete ideas with ownership-based authorization",
+      "Secure email/password and Google authentication using Better Auth",
+      "Search and filter ideas by title, category, and date range",
+      "Interactive comment system with owner-only edit and delete functionality",
+      "Profile management, protected frontend routes, and independently secured backend APIs",
+      "Responsive UI with dark mode, animations, form validation, and toast notifications",
+    ],
+    challenges: [
+      "Implementing authentication and session handling across separate Next.js and Express.js applications",
+      "Protecting backend APIs with authentication and resource ownership validation",
+      "Implementing safe callback URL handling and redirecting users to their originally requested routes",
+      "Combining title search, category filtering, and date-range filtering through the REST API",
+    ],
+    futurePlans: [
+      "Implement password reset and email verification",
+      "Add pagination or infinite scrolling and advanced idea sorting",
+      "Introduce idea likes, bookmarks, and user dashboard analytics",
+      "Build an admin dashboard with advanced role-based authorization",
+      "Add notifications and automated testing",
+    ],
+    liveLink: "https://idea-vault-client-three.vercel.app/",
+    githubClient: "https://github.com/mdabdulawal2001/idea-vault-client",
+    githubServer: "https://github.com/mdabdulawal2001/idea-vault-server",
+    backendLink: "https://idea-vault-server-chi.vercel.app/",
+    category: "Full Stack",
+    status: "Featured",
+    featured: true,
+    date: "2026",
+  },
+
+  {
     id: 1,
     slug: "skillsphere",
     title: "SkillSphere — Modern Online Learning Platform",
@@ -46,14 +170,15 @@ export const projects = [
     date: "2026",
   },
   {
-    id: 2,
+    id: 3,
     slug: "keenkeeper",
     title: "KeenKeeper — Friendship & Relationship Tracker",
     shortDescription:
       "A calm productivity dashboard designed to keep track of contact intervals, communication logs, and personal friendship goals.",
     fullDescription:
       "KeenKeeper is a minimalist productivity web application that helps users maintain meaningful relationships with friends and colleagues without clutter. It monitors contact gaps, automatically highlights overdue check-ins through color-coded badges, and allows single-click interaction logging (Call, Text, Video) that populates a persistent interaction timeline and visualizes analytics using Recharts.",
-    coverImage: "https://i.ibb.co.com/BVwvDz2Z/579934486-51fe2c1f-1f50-424f-a9d1-53b62709688e.png",
+    coverImage:
+      "https://i.ibb.co.com/BVwvDz2Z/579934486-51fe2c1f-1f50-424f-a9d1-53b62709688e.png",
     galleryImages: [
       "https://i.ibb.co.com/5hKF4FVY/579934929-0d45f953-a586-48ac-bfcd-6d297aa1e6dc.png",
       "https://i.ibb.co.com/Q7s3f3pw/579935401-5636d1c5-2385-44d0-973f-158fab76fd20.png",
@@ -82,21 +207,23 @@ export const projects = [
       "AI-driven conversation starters tailored to friend bios",
     ],
     liveLink: "https://keen-keeper-project-by-toha.netlify.app/",
-    githubClient: "https://github.com/mdabdulawal2001/Keen-Keeper-Project-By-Toha",
+    githubClient:
+      "https://github.com/mdabdulawal2001/Keen-Keeper-Project-By-Toha",
     category: "SaaS / Dashboard",
     status: "Live",
     featured: true,
     date: "2026",
   },
   {
-    id: 3,
+    id: 4,
     slug: "digital-tools-store",
     title: "Digital Tools Buying Website",
     shortDescription:
       "An e-commerce store for purchasing digital assets featuring dynamic view toggling, real-time cart counts, and Toast alerts.",
     fullDescription:
       "Digital Tools Buying Website is a responsive web application built for browsing and purchasing digital assets, SaaS utilities, and templates. The platform features dynamic toggling between the product grid and cart view, real-time cart item counts in the navbar, batch item clearing during checkout, and active feedback alerts powered by React-Toastify.",
-    coverImage: "https://i.ibb.co.com/yMt6Y9v/576044604-85f79a82-85ab-4ace-86bc-132dfa4f6bb3.png",
+    coverImage:
+      "https://i.ibb.co.com/yMt6Y9v/576044604-85f79a82-85ab-4ace-86bc-132dfa4f6bb3.png",
     galleryImages: [
       "https://i.ibb.co.com/6R3QGW50/576044830-ab3d1c28-5853-465c-badd-90d23ea8cd04.png",
       "https://i.ibb.co.com/GQxN4pRz/576045009-f00b6ffc-7a96-4b70-b106-61ec7df93ebd.png",
@@ -130,14 +257,15 @@ export const projects = [
     date: "2026",
   },
   {
-    id: 4,
+    id: 5,
     slug: "github-issues-tracker",
     title: "GitHub Issues Tracker",
     shortDescription:
       "A dynamic DOM-driven issue tracking application featuring real-time filtering, search, event delegation, and state persistence.",
     fullDescription:
       "GitHub Issues Tracker is an interactive vanilla JavaScript web app built to replicate GitHub's issue management system. It showcases advanced DOM manipulation, custom event handling via Event Delegation, real-time search filtering, dynamic element insertion, and state persistence using browser LocalStorage.",
-    coverImage: "https://i.ibb.co.com/KcdW81Rq/576026452-c7d288f7-8bb4-424f-b637-5727b653ad57.png",
+    coverImage:
+      "https://i.ibb.co.com/KcdW81Rq/576026452-c7d288f7-8bb4-424f-b637-5727b653ad57.png",
     galleryImages: [
       "https://i.ibb.co.com/1tSVTfG0/576026564-3322eaf4-f691-4d24-bc6b-7eda386fe3d6.png",
       "https://i.ibb.co.com/qYvYYq6Q/576026660-74840ae1-7edb-41c4-b41f-a860ec09d94f.png",
@@ -158,55 +286,57 @@ export const projects = [
       "Drag-and-drop support for reordering issue cards",
     ],
     liveLink: "https://github-issues-tracker-by-abdul-awal.netlify.app/",
-    githubClient: "https://github.com/mdabdulawal2001/B13-A5-Github-Issue-Tracker",
+    githubClient:
+      "https://github.com/mdabdulawal2001/B13-A5-Github-Issue-Tracker",
     category: "DOM Application",
     status: "Completed",
     featured: false,
     date: "2026",
   },
   {
-  id: 5,
-  title: "Job Application Tracker",
-  slug: "job-application-tracker",
-  category: "DOM Manipulation / Web App",
-  status: "Featured",
-  date: "2026",
-  coverImage: "https://i.ibb.co.com/1tfc86ks/576032880-99e46bbd-c1a5-4e0a-8079-bb124096a91e.png",
-  galleryImages: [
-    "https://i.ibb.co.com/HpKPSn0v/576033018-022e8e93-91f9-4da9-8214-91a1b7e4e51c.png",
-    "https://i.ibb.co.com/N2Ttw1Bx/Screenshot-2026-08-09-173300.png",
-  ],
-  shortDescription:
-    "A fully responsive web application designed to track and manage job application statuses efficiently using dynamic DOM logic.",
-  fullDescription:
-    "Job Application Tracker is a practical productivity tool created to streamline job hunting. It features a real-time dashboard and dynamic status management, allowing applicants to keep clear visibility over their progress. Building this project served as a foundational milestone in practicing real-world functionality and complex state updates using pure JavaScript DOM manipulation.",
-  technologyStack: [
-    "JavaScript (DOM)",
-    "Tailwind CSS",
-    "DaisyUI",
-    "HTML5",
-    "CSS3",
-  ],
-  liveLink: "https://job-application-tracker-by-toha.netlify.app/",
-  githubClient: "https://github.com/mdabdulawal2001/B13-A4-PH-Job-Tracker",
-  features: [
-    "Dynamic Status Management: Users can update application states to 'Interview' or 'Rejected' on the fly.",
-    "Real-Time Dashboard: Metrics and application counts update instantly across the user interface whenever changes occur.",
-    "Interactive Toggle States: Smooth switching between 'Interview' and 'Rejected' statuses.",
-    "Tab-Based Filtering: Convenient tabbed navigation to organize and filter job applications seamlessly.",
-    "Instant Deletion & UI Sync: Deleting an application cleans up both the UI card and dashboard counters immediately.",
-  ],
-  challenges: [
-    "Building real-world functional logic using pure DOM manipulation without relying on modern component frameworks.",
-    "Maintaining synchronized state counts across the dashboard when dynamic events (like deletion or status toggles) occur.",
-    "Handling dynamic element removal smoothly while ensuring responsive visual layout.",
-  ],
-  futurePlans: [
-    "Integrate LocalStorage or IndexedDB for persistent data storage across browser sessions.",
-    "Add search functionality and sorting options (e.g., by date applied or company name).",
-    "Implement salary tracking and interview reminder notifications.",
-  ],
-},
+    id: 6,
+    title: "Job Application Tracker",
+    slug: "job-application-tracker",
+    category: "DOM Manipulation / Web App",
+    status: "Featured",
+    date: "2026",
+    coverImage:
+      "https://i.ibb.co.com/1tfc86ks/576032880-99e46bbd-c1a5-4e0a-8079-bb124096a91e.png",
+    galleryImages: [
+      "https://i.ibb.co.com/HpKPSn0v/576033018-022e8e93-91f9-4da9-8214-91a1b7e4e51c.png",
+      "https://i.ibb.co.com/N2Ttw1Bx/Screenshot-2026-08-09-173300.png",
+    ],
+    shortDescription:
+      "A fully responsive web application designed to track and manage job application statuses efficiently using dynamic DOM logic.",
+    fullDescription:
+      "Job Application Tracker is a practical productivity tool created to streamline job hunting. It features a real-time dashboard and dynamic status management, allowing applicants to keep clear visibility over their progress. Building this project served as a foundational milestone in practicing real-world functionality and complex state updates using pure JavaScript DOM manipulation.",
+    technologyStack: [
+      "JavaScript (DOM)",
+      "Tailwind CSS",
+      "DaisyUI",
+      "HTML5",
+      "CSS3",
+    ],
+    liveLink: "https://job-application-tracker-by-toha.netlify.app/",
+    githubClient: "https://github.com/mdabdulawal2001/B13-A4-PH-Job-Tracker",
+    features: [
+      "Dynamic Status Management: Users can update application states to 'Interview' or 'Rejected' on the fly.",
+      "Real-Time Dashboard: Metrics and application counts update instantly across the user interface whenever changes occur.",
+      "Interactive Toggle States: Smooth switching between 'Interview' and 'Rejected' statuses.",
+      "Tab-Based Filtering: Convenient tabbed navigation to organize and filter job applications seamlessly.",
+      "Instant Deletion & UI Sync: Deleting an application cleans up both the UI card and dashboard counters immediately.",
+    ],
+    challenges: [
+      "Building real-world functional logic using pure DOM manipulation without relying on modern component frameworks.",
+      "Maintaining synchronized state counts across the dashboard when dynamic events (like deletion or status toggles) occur.",
+      "Handling dynamic element removal smoothly while ensuring responsive visual layout.",
+    ],
+    futurePlans: [
+      "Integrate LocalStorage or IndexedDB for persistent data storage across browser sessions.",
+      "Add search functionality and sorting options (e.g., by date applied or company name).",
+      "Implement salary tracking and interview reminder notifications.",
+    ],
+  },
 ];
 
 export const getProjectById = (id) =>

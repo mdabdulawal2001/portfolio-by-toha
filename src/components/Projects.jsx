@@ -14,10 +14,10 @@ const Projects = () => {
       className="bg-white px-4 py-24 text-slate-900 sm:px-6 lg:px-8 lg:py-32 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
-        {/* স্মল ডিভাইসে টেক্সট সেন্টারে রাখার জন্য wrapper div যুক্ত করা হয়েছে */}
+        
         <div className="text-center lg:text-left">
           <SectionTitle
-            eyebrow="Selected Work"
+            eyebrow="Selected Works"
             title="Projects crafted to feel premium, useful, and memorable."
             description="Each experience is designed to balance clarity, motion, and modern product thinking."
           />

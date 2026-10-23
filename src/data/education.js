@@ -1,5 +1,21 @@
 export const educationData = [
   {
+    institution: "ICA Technology Training Center & Research Institute",
+    degree: "Certificate in National Standard Basic Course Examination",
+    duration: "2022",
+    type: "Computer Office Application",
+    location: "Dhaka, Bangladesh",
+    result: "Completed",
+    description:
+      "Successfully completed the National Standard Basic Course Examination in Computer Office Application, gaining practical skills in Microsoft Word, Excel, PowerPoint, and Access.",
+    skills: [
+      "Microsoft Word",
+      "Microsoft Excel",
+      "Microsoft PowerPoint",
+      "Microsoft Access",
+    ],
+  },
+  {
     institution: "Programming Hero",
     degree: "Complete Web Development Course",
     duration: "Jan 2026 - Aug 2026",
@@ -8,7 +24,14 @@ export const educationData = [
     result: "Completed",
     description:
       "Successfully completed an intensive 8-month full-stack web development program focused on React, Next.js, Node.js, Express, MongoDB, and modern component architecture.",
-    skills: ["React", "Next.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    skills: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+    ],
   },
   {
     institution: "Self-Taught & Online Learning",
@@ -19,7 +42,13 @@ export const educationData = [
     result: "Completed",
     description:
       "Explored core web technologies, fundamental programming concepts, DOM manipulation, responsive web design, and interactive UI logic independently.",
-    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "Git & GitHub", "Responsive Design"],
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "Git & GitHub",
+      "Responsive Design",
+    ],
   },
   {
     institution: "Jamia Islamia Ibrahimiya Meraj Nagar Madrasa",
@@ -30,7 +59,12 @@ export const educationData = [
     result: "Star Marks in Final Examination",
     description:
       "Completed advanced research and specialization in Islamic law, decision-making, analytical problem-solving, and critical thinking.",
-    skills: ["Analytical Reasoning", "Islamic Jurisprudence", "Research", "Problem Solving"],
+    skills: [
+      "Analytical Reasoning",
+      "Islamic Jurisprudence",
+      "Research",
+      "Problem Solving",
+    ],
   },
   {
     institution: "Madrasa Baitul Uloom Dhalka Nagar",
@@ -41,7 +75,12 @@ export const educationData = [
     result: "Star Marks in Final Examination",
     description:
       "Graduated with a comprehensive study of classical texts, Hadith methodology, Arabic literature, discipline, and advanced linguistic analysis.",
-    skills: ["Arabic Language", "Classical Texts", "Communication", "Leadership"],
+    skills: [
+      "Arabic Language",
+      "Classical Texts",
+      "Communication",
+      "Leadership",
+    ],
   },
   {
     institution: "Hemayetpur Darul Uloom Hosainia Madrasa",
@@ -52,6 +91,11 @@ export const educationData = [
     result: "Star Marks in Final Examination",
     description:
       "Memorized the entire Quran, developing extraordinary focus, mental discipline, long-term memory retention, and dedication from an early age.",
-    skills: ["Mental Discipline", "Focus & Attention", "Memory Retention", "Patience"],
+    skills: [
+      "Mental Discipline",
+      "Focus & Attention",
+      "Memory Retention",
+      "Patience",
+    ],
   },
 ];

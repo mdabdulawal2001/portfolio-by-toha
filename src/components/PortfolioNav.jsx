@@ -164,7 +164,7 @@ const PortfolioNav = () => {
                 }}
               >
                 <i className="font-semibold text-[17px] text-[#5055bd]">
-                  Full Stack Developer
+                  Full Stack Web Developer
                 </i>
               </motion.p>
             </div>

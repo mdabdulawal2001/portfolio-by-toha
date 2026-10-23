@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 import { Input, TextArea, Button } from "@heroui/react";
 import {
@@ -41,7 +42,15 @@ const contactItems = [
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState("");
+
+  const showMessageAlert = (icon, title, text) =>
+    Swal.fire({
+      title,
+      text,
+      icon,
+      draggable: true,
+      confirmButtonColor: "#0b14ba",
+    });
 
   const safeStringify = (obj) => {
     try {
@@ -71,7 +80,6 @@ const Contact = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatusMessage("");
 
     if (!isEmailConfigured) {
       console.warn(
@@ -82,7 +90,9 @@ const Contact = () => {
           publicKey,
         }),
       );
-      setStatusMessage(
+      showMessageAlert(
+        "error",
+        "Message not sent",
         "Email service is not configured. Please contact me directly.",
       );
       setLoading(false);
@@ -90,7 +100,11 @@ const Contact = () => {
     }
 
     if (!formRef.current) {
-      setStatusMessage("Form not ready. Please refresh and try again.");
+      showMessageAlert(
+        "error",
+        "Message not sent",
+        "The form is not ready. Please refresh the page and try again.",
+      );
       setLoading(false);
       return;
     }
@@ -105,14 +119,22 @@ const Contact = () => {
 
       setLoading(false);
       if (result && result.status === 200) {
-        setStatusMessage("Message sent successfully!");
+        showMessageAlert(
+          "success",
+          "Message sent!",
+          "Thanks for reaching out. I’ll get back to you soon.",
+        );
         try {
           formRef.current.reset();
         } catch (err) {
           /* ignore reset errors */
         }
       } else {
-        setStatusMessage("Failed to send message. Please try again.");
+        showMessageAlert(
+          "error",
+          "Message not sent",
+          "Please try again. If the problem continues, contact me directly.",
+        );
         console.warn("EmailJS unexpected response:", safeStringify(result));
       }
     } catch (error) {
@@ -140,15 +162,21 @@ const Contact = () => {
         /service ID not found/i.test(body) ||
         /service id not found/i.test(body)
       ) {
-        setStatusMessage(
-          "Email service misconfigured: service ID not found. Check NEXT_PUBLIC_EMAILJS_SERVICE_ID and EmailJS dashboard.",
+        showMessageAlert(
+          "error",
+          "Message not sent",
+          "The email service is temporarily unavailable. Please contact me directly.",
         );
         console.warn(
           "EmailJS Configuration Error:",
           safeStringify(parsed || body),
         );
       } else {
-        setStatusMessage("Failed to send message. Please try again.");
+        showMessageAlert(
+          "error",
+          "Message not sent",
+          "Please try again. If the problem continues, contact me directly.",
+        );
         console.warn("EmailJS Error:", safeStringify(parsed || body));
       }
     }
@@ -297,11 +325,6 @@ const Contact = () => {
                     {loading ? "Sending..." : "Send Message"}
                   </Button>
 
-                  {statusMessage && (
-                    <p className="mt-2 text-center text-sm font-medium text-sky-500">
-                      {statusMessage}
-                    </p>
-                  )}
                 </form>
               ) : (
                 <div className="grid w-full gap-4 p-6">

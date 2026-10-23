@@ -79,7 +79,7 @@ export default async function ProjectDetailPage({ params }) {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover w-full h-full transition-transform duration-700 ease-out hover:scale-105"
+                className="h-full w-full object-contain"
               />
             </div>
           </div>
