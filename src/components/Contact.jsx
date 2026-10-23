@@ -185,7 +185,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="bg-slate-50 px-4 py-24 text-slate-900 sm:px-6 lg:px-8 lg:py-32 dark:bg-slate-950 dark:text-slate-100"
+      className="bg-slate-50 px-4 py-12 text-slate-900 sm:px-6 lg:px-8 lg:py-16 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
         <SectionTitle
@@ -193,7 +193,7 @@ const Contact = () => {
           title="Let’s build something polished together."
           description="Whether you need a refined landing page, a product experience, or a scalable frontend system, I’m ready to help."
         />
-        <div className="mt-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

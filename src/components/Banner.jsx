@@ -33,7 +33,7 @@ const Banner = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_28%),linear-gradient(135deg,#f8fbff_0%,#f8fafc_50%,#eef4ff_100%)] px-4 py-24 text-slate-900 sm:px-6 lg:px-8 lg:py-32 dark:bg-[radial-gradient(circle_at_top_left,rgba(2,132,199,0.22),transparent_28%),linear-gradient(135deg,#020617_0%,#0f172a_50%,#111827_100%)] dark:text-slate-100"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_28%),linear-gradient(135deg,#f8fbff_0%,#f8fafc_50%,#eef4ff_100%)] px-4 py-16 text-slate-900 sm:px-6 lg:px-8 lg:py-24 dark:bg-[radial-gradient(circle_at_top_left,rgba(2,132,199,0.22),transparent_28%),linear-gradient(135deg,#020617_0%,#0f172a_50%,#111827_100%)] dark:text-slate-100"
     >
       <Container className="relative">
         <div className="absolute inset-0 -z-10 overflow-hidden">

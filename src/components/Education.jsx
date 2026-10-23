@@ -9,7 +9,7 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="bg-white px-4 py-16 text-slate-900 sm:px-6 lg:px-8 lg:py-28 dark:bg-slate-950 dark:text-slate-100"
+      className="bg-white px-4 py-12 text-slate-900 sm:px-6 lg:px-8 lg:py-16 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
         {/* Section Title Wrapper: Centered on small devices, left-aligned on lg */}
@@ -22,7 +22,7 @@ const Education = () => {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative mt-12 pl-0 md:border-l md:border-slate-200/80 md:pl-8 dark:md:border-slate-800">
+        <div className="relative mt-8 pl-0 md:border-l md:border-slate-200/80 md:pl-8 dark:md:border-slate-800">
           {educationData.map((item, index) => (
             <motion.div
               key={item.institution + index}

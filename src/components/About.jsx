@@ -33,7 +33,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className=" bg-white px-4 py-20 text-slate-900 sm:px-6 lg:px-8 lg:py-28 dark:bg-slate-950 dark:text-slate-100"
+      className="bg-white px-4 py-12 text-slate-900 sm:px-6 lg:px-8 lg:py-16 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
         <div className="grid gap-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

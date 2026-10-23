@@ -10,7 +10,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="bg-slate-50 px-4 py-16 text-slate-900 sm:px-6 lg:px-8 lg:py-28 dark:bg-slate-950 dark:text-slate-100"
+      className="bg-slate-50 px-4 py-12 text-slate-900 sm:px-6 lg:px-8 lg:py-16 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
         {/* Section Title Wrapper */}
@@ -23,7 +23,7 @@ const Experience = () => {
         </div>
 
         {/* Experience Cards Grid */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-8 grid gap-8 lg:grid-cols-2">
           {experienceData.map((item, index) => (
             <motion.div
               key={item.category || index}

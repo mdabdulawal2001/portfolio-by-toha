@@ -39,6 +39,10 @@ export const experienceData = [
       {
         name: "Node.js",
         icon: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      }, 
+      {
+        name: "Express.js",
+        icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSJSbcjMcWZv-5InxIlqgKasF5KiZ8qq59fd_dhOtdQ&s=10"
       }
     ],
   },

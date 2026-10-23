@@ -11,7 +11,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="bg-white px-4 py-24 text-slate-900 sm:px-6 lg:px-8 lg:py-32 dark:bg-slate-950 dark:text-slate-100"
+      className="bg-white px-4 py-12 text-slate-900 sm:px-6 lg:px-8 lg:py-16 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
         
@@ -23,7 +23,7 @@ const Projects = () => {
           />
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => {
             const extraTechCount = project.technologyStack.length - 3;
 

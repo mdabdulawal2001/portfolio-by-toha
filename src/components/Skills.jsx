@@ -9,7 +9,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-slate-50 px-4 py-24 text-slate-900 sm:px-6 lg:px-8 lg:py-32 dark:bg-slate-950 dark:text-slate-100"
+      className="bg-slate-50 px-4 py-12 text-slate-900 sm:px-6 lg:px-8 lg:py-16 dark:bg-slate-950 dark:text-slate-100"
     >
       <Container>
         <SectionTitle
@@ -17,7 +17,7 @@ const Skills = () => {
           title="A practical toolkit for modern product development."
           description="I blend thoughtful UI craft with dependable engineering practices to ship polished experiences."
         />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {skillsData.map((group, index) => (
             <motion.div
               key={group.category}

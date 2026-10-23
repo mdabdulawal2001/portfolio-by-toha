@@ -52,7 +52,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-slate-950 px-4 pb-12 pt-20 text-slate-300 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden bg-slate-950 px-4 pb-8 pt-14 text-slate-300 sm:px-6 lg:px-8">
       
       {/* 📦 Main Content Container */}
       <Container className="relative z-10">

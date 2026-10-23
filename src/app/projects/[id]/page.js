@@ -36,8 +36,8 @@ export default async function ProjectDetailPage({ params }) {
     currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   return (
-    <main className="min-h-screen bg-slate-50 pb-24 pt-28 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-      <Container className="space-y-10">
+    <main className="min-h-screen bg-slate-50 pb-16 pt-20 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+      <Container className="space-y-8">
         {/* Top Hero Banner */}
         <div className="overflow-hidden rounded-[32px] border border-slate-200/80 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-900/60">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -88,7 +88,7 @@ export default async function ProjectDetailPage({ params }) {
         {/* Content Layout */}
         <div className="grid gap-8 lg:grid-cols-[1.6fr_0.8fr]">
           {/* Main Sections */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Overview */}
             <section className="rounded-[28px] border border-slate-200/80 bg-white p-8 shadow-xs dark:border-slate-800 dark:bg-slate-900/60">
               <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-slate-100!">
