@@ -1,36 +1,247 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ✨ MD. ABDUL AWAL TOHA — Developer Portfolio
 
-## Getting Started
+<p align="center">
+  A responsive developer portfolio showcasing selected web projects, technical skills, experience, education, and contact options.
+</p>
 
-First, run the development server:
+<p align="center">
+  <a href="https://portfolio-by-toha.vercel.app/" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/Live%20Portfolio-Visit%20Website-brightgreen?style=for-the-badge&logo=vercel" alt="Live Portfolio" />
+  </a>
+  <a href="https://github.com/mdabdulawal2001" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="GitHub Profile" />
+  </a>
+  <a href="https://www.linkedin.com/in/md-abdul-awal-toha/" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn Profile" />
+  </a>
+  <a href="mailto:mdabdulawal2001@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📝 Project Overview
+
+This portfolio presents **MD. Abdul Awal Toha's** work and professional background in one responsive website. Visitors can explore the projects, review their technologies and details, learn about skills and experience, and get in touch.
+
+The site is built with **Next.js App Router** and includes:
+
+* 🧭 Section navigation with a mobile slide-in sidebar
+* 👨‍💻 Hero introduction, profile photo, social links, and resume download
+* 🙋 About, skills, education, and experience sections
+* 🚀 Project cards linked to individual project detail pages
+* ✉️ Contact information and an EmailJS contact form
+* 🌙 Light and dark themes
+* 📱 Responsive layouts and motion effects
+
+This repository contains the **portfolio frontend**. Some showcased projects have separate repositories and services; they are linked from their project details.
+
+---
+
+## 🔗 Portfolio & Contact Links
+
+<p align="center">
+  <a href="https://portfolio-by-toha.vercel.app/" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/Live%20Portfolio-Open%20Site-brightgreen?style=for-the-badge&logo=vercel" alt="Live Portfolio Website" />
+  </a>
+  <a href="https://github.com/mdabdulawal2001" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/GitHub-Visit%20Profile-black?style=for-the-badge&logo=github" alt="GitHub Profile" />
+  </a>
+  <a href="https://www.linkedin.com/in/md-abdul-awal-toha/" target="_blank" rel="noreferrer">
+    <img src="https://img.shields.io/badge/LinkedIn-View%20Profile-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn Profile" />
+  </a>
+  <a href="mailto:mdabdulawal2001@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Send%20a%20Message-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email MD. Abdul Awal Toha" />
+  </a>
+</p>
+
+---
+
+## 📸 Screenshots
+
+Replace each marked placeholder below with an image element or Markdown image when you are ready to add screenshots.
+
+<p align="center">
+  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with the homepage / hero screenshot. -->
+  <strong>📷 Add Homepage and Hero Screenshot Here</strong>
+</p>
+
+<p align="center">
+  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with the projects section screenshot. -->
+  <strong>📷 Add Projects Section Screenshot Here</strong>
+</p>
+
+<p align="center">
+  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with a project details page screenshot. -->
+  <strong>📷 Add Project Details Screenshot Here</strong>
+</p>
+
+<p align="center">
+  <!-- SCREENSHOT PLACEHOLDER: Replace this marker with a mobile layout screenshot. -->
+  <strong>📷 Add Mobile Layout Screenshot Here</strong>
+</p>
+
+---
+
+## 🚀 Portfolio Features
+
+### 🧭 Navigation
+
+* Desktop navigation links move between portfolio sections.
+* On small screens, the menu opens as a right-side sidebar with a dimmed backdrop.
+* The sidebar closes from its close button, backdrop, Escape key, or after selecting a section.
+* Theme switching is available in the desktop navigation and mobile sidebar.
+
+### 👨‍💻 Hero & Resume
+
+* Professional introduction and local profile photo.
+* GitHub, LinkedIn, Facebook, and email links.
+* Resume button links to the supplied Google Drive file.
+* The profile image uses a gentle floating animation and respects reduced-motion preferences.
+
+### 🙋 Professional Sections
+
+* About section and development highlights.
+* Skills grouped by category.
+* Education and practical experience timelines.
+* Contact details for email, phone, and WhatsApp.
+
+### ✉️ Contact Form
+
+* The form sends messages through EmailJS when configured.
+* SweetAlert2 displays draggable success and error messages.
+* If EmailJS is unavailable, visitors can still contact the developer directly by email.
+
+### 🚀 Projects & Details
+
+Project cards include a cover image, summary, technology badges, live demo, repository, and a details link. Each project has a dynamic page at `/projects/[id]` with its overview, technology stack, screenshots, challenges, future improvements, and project links.
+
+Current featured work includes:
+
+* Trip Swift — Online Ticket Booking Platform
+* IdeaVault — Modern Idea Management Platform
+* SkillSphere — Modern Online Learning Platform
+* KeenKeeper — Friendship & Relationship Tracker
+* Digital Tools Buying Website
+* GitHub Issues Tracker
+* Job Application Tracker
+
+---
+
+## 🛠️ Technologies Used
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Framer_Motion-Animation-0055FF?style=for-the-badge&logo=framer" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/HeroUI-Components-7828C8?style=for-the-badge" alt="HeroUI" />
+  <img src="https://img.shields.io/badge/EmailJS-Contact_Form-FFB400?style=for-the-badge" alt="EmailJS" />
+  <img src="https://img.shields.io/badge/SweetAlert2-Alerts-7066E0?style=for-the-badge" alt="SweetAlert2" />
+  <img src="https://img.shields.io/badge/React_Icons-Icons-E91E63?style=for-the-badge" alt="React Icons" />
+</p>
+
+---
+
+## 🏗️ Application Structure
+
+```text
+src/
+├── app/
+│   ├── projects/[id]/page.js   # Dynamic project detail route
+│   ├── globals.css             # Global styles and theme foundations
+│   ├── layout.js               # Root layout, metadata, and navigation
+│   └── page.js                 # Portfolio sections and homepage
+├── assets/                     # Profile and About images
+├── components/                 # Navigation, sections, and reusable UI
+└── data/                       # Navigation, projects, skills, and profile data
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📦 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Requirements
 
-## Learn More
+* Node.js and npm
+* EmailJS account credentials only if you want the contact form to send email
 
-To learn more about Next.js, take a look at the following resources:
+### Install and Run
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Install dependencies
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Start the development server
+npm run dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev    # Start the Next.js development server
+npm run lint   # Run ESLint
+npm run build  # Create a production build
+npm run start  # Start the production server
+```
+
+### EmailJS Configuration
+
+Create a `.env.local` file in the project root and provide the EmailJS values:
+
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+These values are used by the browser-based EmailJS integration. Do not put private server credentials in `NEXT_PUBLIC_*` variables. Without EmailJS configuration, the site shows direct email contact options.
+
+---
+
+## 🌐 Deployment
+
+Deploy this Next.js application to a platform that supports Next.js. Configure the EmailJS public values in the hosting provider if the contact form should be enabled. Project detail pages are generated from the project data in `src/data/projects.js`.
+
+---
+
+## 🧠 What I Learned
+
+* Building reusable, responsive portfolio sections with React and Next.js.
+* Organizing project content as data and rendering dynamic detail routes.
+* Creating accessible mobile navigation and theme controls.
+* Combining animation, image optimization, and responsive layouts.
+* Integrating a browser-based contact form with clear success and error feedback.
+
+---
+
+## 🔮 Future Improvements
+
+* Add polished screenshots to this README.
+* Add automated checks for project data and navigation links.
+* Continue improving accessibility and performance across devices.
+
+---
+
+## 👨‍💻 Developer
+
+<p align="center">
+  <strong>MD. ABDUL AWAL TOHA</strong><br />
+  Full Stack Web Developer
+</p>
+
+<p align="center">
+  <a href="https://github.com/mdabdulawal2001" target="_blank" rel="noreferrer">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/md-abdul-awal-toha/" target="_blank" rel="noreferrer">LinkedIn</a> ·
+  <a href="https://www.facebook.com/md.toha.509994" target="_blank" rel="noreferrer">Facebook</a> ·
+  <a href="mailto:mdabdulawal2001@gmail.com">Email</a>
+</p>
+
+---
+
+## ⭐ Support
+
+If you find this portfolio or one of its projects interesting, feel free to connect through the links above.
