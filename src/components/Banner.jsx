@@ -18,7 +18,7 @@ import { socialLinks } from "@/data/socialLinks";
 import profileImage from "@/assets/profilePic.jpeg";
 
 const RESUME_DOWNLOAD_URL =
-  "https://drive.google.com/uc?export=download&id=1R6qtfufMvCk3PCZhZ3jnLETRd7P7yOo6";
+  "https://drive.google.com/uc?export=download&id=1oGd6ZgRW0g91efbx00aI-6eJSoWlVbsO";
 
 const Banner = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -80,7 +80,7 @@ const Banner = () => {
                 className="w-[90%] sm:w-auto"
               >
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1R6qtfufMvCk3PCZhZ3jnLETRd7P7yOo6"
+                  href="https://drive.google.com/uc?export=download&id=1oGd6ZgRW0g91efbx00aI-6eJSoWlVbsO"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-[#0b14ba] px-7 p-2.75 text-sm font-semibold text-white shadow-[0_18px_45px_-25px_rgba(14,165,233,0.75)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-sky-500 hover:shadow-[0_22px_60px_-30px_rgba(14,165,233,0.85)] focus:outline-none focus:ring-2 focus:ring-sky-400/40 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
